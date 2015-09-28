@@ -45,8 +45,8 @@ namespace DoctorCarReport.wpfPage
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string username = txtUsername.Text="admin";
-            string password = txtPassword.Password="axi0helix";
+            string username = txtUsername.Text;
+            string password = txtPassword.Password;
             
 
 

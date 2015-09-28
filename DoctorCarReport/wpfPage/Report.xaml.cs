@@ -110,73 +110,99 @@ namespace DoctorCarReport.wpfPage
 
         private void btnGenerateReport_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    ExcelGenerator generator = new ExcelGenerator();
+            if (validInputs())
+            {
 
-            //    DateTime? fromDate = dateFrom.SelectedDate;
-            //    DateTime toDate = dateTo.SelectedDate.Value;
+                try
+                {
+                    ExcelGenerator generator = new ExcelGenerator();
 
-            //    string filePath = txtSavePath.Text + "\\Report_" + cmbOrganization.Text.Trim() + "_" + cmbDoctorCar.Text.Trim() + "_" + fromDate.Value.Date.ToString("yyyy-MM-dd") + ".xlsx";
+                    DateTime? fromDate = dateFrom.SelectedDate;
+                    DateTime toDate = dateTo.SelectedDate.Value;
+                    int recordCount = 0;
+                    foreach (Organization org in this.Organizations)
+                    {
+                        if (ItemHelper.GetIsChecked(org) == true)
+                        {
+                            foreach (Car car in org.Cars)
+                            {
+                                if (ItemHelper.GetIsChecked(car) == true)
+                                {
 
-            //    DrCarDriveService service = new DrCarDriveService();
-            //    tbl_car selectedDrCar = (tbl_car)cmbDoctorCar.SelectedItem;
+                                    // string filePath = txtSavePath.Text + "\\Report_" + cmbOrganization.Text.Trim() + "_" + cmbDoctorCar.Text.Trim() + "_" + fromDate.Value.Date.ToString("yyyy-MM-dd") + ".xlsx";
+                                    string filePath = txtSavePath.Text + "\\Report_" + org.Name.Trim() + "_" + car.RegNo.Trim() + "_" + fromDate.Value.Date.ToString("yyyy-MM-dd") + ".xlsx";
 
+                                    ConnectionStringManager.updateConnectionStrings(org.Id.ToString());
 
+                                    DrCarDriveService service = new DrCarDriveService();
 
-            //    if (fromDate == null || toDate == null || selectedDrCar == null || txtSavePath.Text == "" || txtSavePath.Text == null)
-            //    {
-            //        System.Windows.MessageBox.Show("Please select valid inputs");
-            //    }
-            //    else
-            //    {
-            //        List<DriveHistoryView> record = service.viewHistoryRecordByCarIDDateFromTo(selectedDrCar.ID, fromDate.Value, toDate.AddDays(1));
-            //        if (record.Count > 0)
-            //        {
-            //            generator.createExcelReport(filePath, cmbDoctorCar.Text, record);
-            //            System.Windows.MessageBox.Show("Report created successfully", "Success");
-            //        }
-            //        else
-            //        {
-            //            System.Windows.MessageBox.Show("No records available for the selected inputs");
-            //        }
-            //    }
+                                    List<DriveHistoryView> record = service.viewHistoryRecordByCarIDDateFromTo(car.Id, fromDate.Value, toDate.AddDays(1));
+                                    if (record.Count > 0)
+                                    {
+                                        generator.createExcelReport(filePath, car.RegNo, record);
+                                        recordCount++;                                        
+                                    }
+                                }
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Windows.MessageBox.Show(ex.Message, "Failed to create report");
-            //}
+                            }
+                        }
+                    }
+                    if (recordCount > 0)
+                    {
+                        System.Windows.MessageBox.Show("Report created successfully", "Success");
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("No records available for the selected inputs");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.MessageBox.Show(ex.Message, "Failed to create report");
+                }
+            }
         }
 
-        private void Page_Loaded_1(object sender, RoutedEventArgs e)
+        private bool validInputs()
         {
+            DateTime? fromDate = dateFrom.SelectedDate;
+            DateTime? toDate = dateTo.SelectedDate;
 
-        }
+            if (txtSavePath.Text == "" || txtSavePath.Text == null)
+            {
+                System.Windows.MessageBox.Show("Please select report save directory");
+                return false;
+            }
+            if (fromDate == null)
+            {
+                System.Windows.MessageBox.Show("Please select report start date");
+                return false;
+            }
+            if (toDate == null)
+            {
+                System.Windows.MessageBox.Show("Please select report end date");
+                return false;
+            }
 
-        private void cmbOrganization_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //try
-            //{
-            //    cmbDoctorCar.IsEnabled = true;
-            //    tbl_organization organization = (tbl_organization)cmbOrganization.SelectedItem;
-            //    string dbName = "drcardrive_" + organization.ID;
-            //    ConnectionStringManager.updateConnectionStrings(dbName);
+            int numCars = 0;
+            foreach (Organization org in this.Organizations)
+            {
+                foreach (Car car in org.Cars)
+                {
+                    if (ItemHelper.GetIsChecked(car) == true)
+                    {
+                        numCars++;
+                    }
+                }
+            }
+            if (numCars == 0)
+            {
+                System.Windows.MessageBox.Show("Please select organization and cars");
+                return false;
+            }
 
-            //    DrCarDriveService service = new DrCarDriveService();
-            //    List<tbl_car> listCar = service.getDrCarList();
-            //    cmbDoctorCar.Items.Clear();
-            //    foreach (tbl_car car in listCar)
-            //    {
-            //        cmbDoctorCar.Items.Add(car);
-            //        cmbDoctorCar.DisplayMemberPath = "REG_NO";
-            //        cmbDoctorCar.SelectedIndex = 0;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Windows.MessageBox.Show("Unable to update database connection", "Error");
-            //}
+            return true;
 
         }
 
@@ -198,7 +224,14 @@ namespace DoctorCarReport.wpfPage
                 {
                     ItemHelper.SetIsChecked(org, false);
                 }
-                btnSelectAll.Content = "Select all";                
+                foreach (TreeViewItem item in treeView.Items)
+                {
+                    if (item.IsExpanded == true)
+                    {
+                        item.IsExpanded = false;
+                    }
+                }
+                btnSelectAll.Content = "Select all";
             }
             else if (!allSelected)
             {
@@ -211,7 +244,7 @@ namespace DoctorCarReport.wpfPage
             allSelected = !allSelected;
         }
 
-        
+
 
 
     }

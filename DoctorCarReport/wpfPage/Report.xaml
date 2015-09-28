@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DoctorCarReport"
       mc:Ignorable="d"
-	Title="Report" Height="375" Width="650" Loaded="Page_Loaded_1">
+	Title="Report" Height="375" Width="650" >
 
     <Grid Margin="0">
         <Grid.ColumnDefinitions>
