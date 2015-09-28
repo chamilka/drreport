@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA886F6E-A826-492C-9956-380F1229CEF9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoctorCarReport</RootNamespace>
+    <AssemblyName>DoctorCarReport</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Gat.Controls.OpenDialog">
+      <HintPath>..\packages\OpenDialog.1.1.1\lib\net45\Gat.Controls.OpenDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ApplicationStarter.xaml.cs">
+      <DependentUpon>ApplicationStarter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DrCarDriveModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrCarDriveModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DrCarDriveModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DrCarDriveModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrCarDriveModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DrCarDriveReport.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrCarDriveReport.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DrCarDriveReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrCarDriveReport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DrCarDriveReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrCarDriveReport.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Organization.cs" />
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Service\DrCarDriveService.cs" />
+    <Compile Include="Service\LoginService.cs" />
+    <Compile Include="Service\OrganizationService.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="style\LabelStyle.xaml.cs">
+      <DependentUpon>LabelStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_car.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_car_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_drive.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_drive_medicine.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_drive_medicine_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_drive_staff.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_drive_staff_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_drive_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_drive_village.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_drive_village_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_expenses.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_expenses_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_expense_desc.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_expense_desc_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_fuel.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_fuel_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_issue_medicine.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_issue_medicine_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_organization.cs">
+      <DependentUpon>DrCarDriveReport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_places.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_places_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_staff.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_staff_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_user.cs">
+      <DependentUpon>DrCarDriveReport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_weather.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_weather_Tombstone.cs">
+      <DependentUpon>DrCarDriveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tree.xaml.cs">
+      <DependentUpon>Tree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="util\CellManager.cs" />
+    <Compile Include="util\CellStyle.cs" />
+    <Compile Include="util\ConnectionStringManager.cs" />
+    <Compile Include="util\DriveHistoryView.cs" />
+    <Compile Include="util\ExcelGenerator.cs" />
+    <Compile Include="util\ExpenseView.cs" />
+    <Compile Include="util\FindDifference.cs" />
+    <Compile Include="util\ItemHelper.cs" />
+    <Compile Include="wpfPage\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfPage\OrganizationListPage.xaml.cs">
+      <DependentUpon>OrganizationListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfPage\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ApplicationStarter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="style\LabelStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfPage\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfPage\OrganizationListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfPage\Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="DrCarDriveReport.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DrCarDriveReport.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DrCarDriveModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DrCarDriveModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DrCarDriveModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DrCarDriveModel.edmx</DependentUpon>
+      <LastGenOutput>DrCarDriveModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DrCarDriveModel.edmx.diagram">
+      <DependentUpon>DrCarDriveModel.edmx</DependentUpon>
+    </None>
+    <None Include="DrCarDriveModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DrCarDriveModel.edmx</DependentUpon>
+      <LastGenOutput>DrCarDriveModel.cs</LastGenOutput>
+    </None>
+    <None Include="DrCarDriveReport.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DrCarDriveReport.edmx</DependentUpon>
+      <LastGenOutput>DrCarDriveReport.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DrCarDriveReport.edmx.diagram">
+      <DependentUpon>DrCarDriveReport.edmx</DependentUpon>
+    </None>
+    <None Include="DrCarDriveReport.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DrCarDriveReport.edmx</DependentUpon>
+      <LastGenOutput>DrCarDriveReport.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loading1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loading2.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

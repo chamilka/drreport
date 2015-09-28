@@ -1,0 +1,52 @@
+﻿<Window x:Class="DoctorCarReport.Tree"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DoctorCarReport"
+        Title="Tree" Height="455.224" Width="582.09">
+    <StackPanel>
+        <TreeView x:Name="treeView" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Organizations}">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:Organization}" ItemsSource="{Binding Cars}" >
+                    <CheckBox Content="{Binding Name}" IsChecked="{Binding Path=(local:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <CheckBox.Style>
+                            <Style TargetType="{x:Type CheckBox}">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=(local:ItemHelper.IsChecked)}" Value="False" >
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                    </CheckBox>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type local:Car}" >
+                    <CheckBox Content="{Binding RegNo}" IsChecked="{Binding Path=(local:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <CheckBox.Style>
+                            <Style TargetType="{x:Type CheckBox}">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=(local:ItemHelper.IsChecked)}" Value="False" >
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                    </CheckBox>
+                </DataTemplate>
+            </TreeView.Resources>
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="True"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+        </TreeView>
+
+        <Button Content="?" Click="Button_PrintCrew_Click" />
+
+        <TextBlock x:Name="textBoxCrew"/>
+
+    </StackPanel>
+</Window>

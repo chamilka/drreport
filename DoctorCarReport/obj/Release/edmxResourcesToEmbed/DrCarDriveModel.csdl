@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="drcardriveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_car">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="REG_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="REMARK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_car_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_drive">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DRIVER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="START_DATE" Type="DateTime" Precision="3" />
+    <Property Name="START_ODOMETER" Type="Double" />
+    <Property Name="END_DATE" Type="DateTime" Precision="3" />
+    <Property Name="END_ODOMETER" Type="Double" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="INSERT_DATETIME" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATETIME" Type="DateTime" Precision="3" />
+    <Property Name="FKY_CAR" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FROM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_drive_medicine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_drive_medicine_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_drive_staff">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DRIVE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="FKY_DRIVE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FKY_STAFF" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_drive_staff_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_drive_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_drive_village">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_drive_village_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_expense_desc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_expense_desc_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_expenses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ADD_DATE" Type="DateTime" Precision="3" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="FKY_DRIVE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FKY_EXPENSE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_expenses_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_fuel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VOLUME" Type="Double" />
+    <Property Name="ODOMETER" Type="Double" />
+    <Property Name="ADD_TIME" Type="DateTime" Precision="3" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="INSERT_TIME" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_TIME" Type="DateTime" Precision="3" />
+    <Property Name="FKY_DRIVE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_fuel_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_issue_medicine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOSAGE" Type="Double" />
+    <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="FKY_PLACE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FKY_MEDICINE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_issue_medicine_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_places">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ARRIVAL_DATE" Type="DateTime" Precision="3" />
+    <Property Name="ARRIVAL_ODOMETER" Type="Double" />
+    <Property Name="DEPARTURE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="DEPARTURE_ODOMETER" Type="Double" />
+    <Property Name="NUMBER_PATIENT" Type="Int32" />
+    <Property Name="NUMBER_DOCTORS" Type="Int32" />
+    <Property Name="NUMBER_PARAMEDICS" Type="Int32" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="INSERT_DATETIME" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATETIME" Type="DateTime" Precision="3" />
+    <Property Name="FKY_DRIVE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FKY_VILLAGE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="VILLAGE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_places_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_staff">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TP" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="String" MaxLength="27" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POSITION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="START_DATE" Type="String" MaxLength="27" FixedLength="false" Unicode="true" />
+    <Property Name="HEADOFFICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_staff_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_weather">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_weather_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="drcardriveEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_car" EntityType="Self.tbl_car" />
+    <EntitySet Name="tbl_car_Tombstone" EntityType="Self.tbl_car_Tombstone" />
+    <EntitySet Name="tbl_drive" EntityType="Self.tbl_drive" />
+    <EntitySet Name="tbl_drive_medicine" EntityType="Self.tbl_drive_medicine" />
+    <EntitySet Name="tbl_drive_medicine_Tombstone" EntityType="Self.tbl_drive_medicine_Tombstone" />
+    <EntitySet Name="tbl_drive_staff" EntityType="Self.tbl_drive_staff" />
+    <EntitySet Name="tbl_drive_staff_Tombstone" EntityType="Self.tbl_drive_staff_Tombstone" />
+    <EntitySet Name="tbl_drive_Tombstone" EntityType="Self.tbl_drive_Tombstone" />
+    <EntitySet Name="tbl_drive_village" EntityType="Self.tbl_drive_village" />
+    <EntitySet Name="tbl_drive_village_Tombstone" EntityType="Self.tbl_drive_village_Tombstone" />
+    <EntitySet Name="tbl_expense_desc" EntityType="Self.tbl_expense_desc" />
+    <EntitySet Name="tbl_expense_desc_Tombstone" EntityType="Self.tbl_expense_desc_Tombstone" />
+    <EntitySet Name="tbl_expenses" EntityType="Self.tbl_expenses" />
+    <EntitySet Name="tbl_expenses_Tombstone" EntityType="Self.tbl_expenses_Tombstone" />
+    <EntitySet Name="tbl_fuel" EntityType="Self.tbl_fuel" />
+    <EntitySet Name="tbl_fuel_Tombstone" EntityType="Self.tbl_fuel_Tombstone" />
+    <EntitySet Name="tbl_issue_medicine" EntityType="Self.tbl_issue_medicine" />
+    <EntitySet Name="tbl_issue_medicine_Tombstone" EntityType="Self.tbl_issue_medicine_Tombstone" />
+    <EntitySet Name="tbl_places" EntityType="Self.tbl_places" />
+    <EntitySet Name="tbl_places_Tombstone" EntityType="Self.tbl_places_Tombstone" />
+    <EntitySet Name="tbl_staff" EntityType="Self.tbl_staff" />
+    <EntitySet Name="tbl_staff_Tombstone" EntityType="Self.tbl_staff_Tombstone" />
+    <EntitySet Name="tbl_weather" EntityType="Self.tbl_weather" />
+    <EntitySet Name="tbl_weather_Tombstone" EntityType="Self.tbl_weather_Tombstone" />
+  </EntityContainer>
+</Schema>

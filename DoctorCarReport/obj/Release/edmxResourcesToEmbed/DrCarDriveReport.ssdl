@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="syncdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_organization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORGANIZATION_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="LOCATION" Type="nvarchar" MaxLength="50" />
+    <Property Name="DBNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="URL" Type="nvarchar" MaxLength="50" />
+    <Property Name="INSERTDATE" Type="datetime" />
+    <Property Name="UPDATEDATE" Type="datetime" />
+    <Property Name="STATUS" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+    <Property Name="ROLE" Type="nchar" MaxLength="10" />
+    <Property Name="URL" Type="nvarchar" MaxLength="50" />
+    <Property Name="INSERTDATE" Type="datetime" />
+    <Property Name="UPDATEDATE" Type="datetime" />
+    <Property Name="STATUS" Type="int" />
+    <Property Name="ORGANIZATION_ID" Type="int" />
+  </EntityType>
+  <Association Name="FK_tbl_user_tbl_organization">
+    <End Role="tbl_organization" Type="Self.tbl_organization" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_user">
+        <PropertyRef Name="ORGANIZATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="syncdbModelStoreContainer">
+    <EntitySet Name="tbl_organization" EntityType="Self.tbl_organization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_user_tbl_organization" Association="Self.FK_tbl_user_tbl_organization">
+      <End Role="tbl_organization" EntitySet="tbl_organization" />
+      <End Role="tbl_user" EntitySet="tbl_user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,89 @@
+﻿<Page x:Class="DoctorCarReport.wpfPage.Report"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DoctorCarReport"
+      mc:Ignorable="d"
+	Title="Report" Height="375" Width="650" Loaded="Page_Loaded_1">
+
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="85*"/>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="263*"/>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="135*"/>
+            <ColumnDefinition Width="2"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Organization : " Grid.Column="1" HorizontalAlignment="Left" Margin="20,7,0,0" Grid.Row="3" VerticalAlignment="Top" Width="86" Height="26"/>
+        <Label Content="From :" Grid.Column="5" HorizontalAlignment="Right" Margin="0,8,0,0" Grid.Row="3" VerticalAlignment="Top" Height="26" Width="54"/>
+        <Label Content="To :" Grid.Column="5" HorizontalAlignment="Right" Margin="0,9,1,0" Grid.Row="5" VerticalAlignment="Top" Height="26" Width="40"/>
+        <DatePicker x:Name="dateFrom" Grid.Column="7" HorizontalAlignment="Left" Margin="2,9,0,0" Grid.Row="3" VerticalAlignment="Top" SelectedDateChanged="dateFrom_SelectedDateChanged" Height="24" Width="102"/>
+        <DatePicker x:Name="dateTo" Grid.Column="7" HorizontalAlignment="Left" Margin="2,10,0,0" Grid.Row="5" VerticalAlignment="Top" Height="24" Width="102"/>
+        <Label Content="Save Directory :" HorizontalAlignment="Left" Margin="12,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94" Grid.Column="1" Height="26"/>
+        <TextBox x:Name="txtSavePath" Grid.Column="3" Height="23" Margin="0,10,1,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <Button x:Name="btnBrowse" Content="Browse" Grid.Column="7" HorizontalAlignment="Left" Margin="2,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btnBrowse_Click" Height="22"/>
+        <Button x:Name="btnGenerateReport" Content="Generate Report" Grid.Column="7" HorizontalAlignment="Left" Margin="0,2,0,0" Grid.Row="9" VerticalAlignment="Top" Width="104" Click="btnGenerateReport_Click" Height="35"/>
+        <!--<TreeView Grid.Column="3" HorizontalAlignment="Left" Height="133" Margin="2,8,0,0" Grid.Row="3" VerticalAlignment="Top" Width="207" Grid.RowSpan="5"/>-->
+        <TreeView x:Name="treeView" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=Organizations}" Grid.Column="3"  Grid.Row="3" Grid.RowSpan="5">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:Organization}" ItemsSource="{Binding Cars}" >
+                    <CheckBox Content="{Binding Name}" IsChecked="{Binding Path=(local:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <CheckBox.Style>
+                            <Style TargetType="{x:Type CheckBox}">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=(local:ItemHelper.IsChecked)}" Value="False" >
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                    </CheckBox>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type local:Car}" >
+                    <CheckBox Content="{Binding RegNo}" IsChecked="{Binding Path=(local:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <CheckBox.Style>
+                            <Style TargetType="{x:Type CheckBox}">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=(local:ItemHelper.IsChecked)}" Value="False" >
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                    </CheckBox>
+                </DataTemplate>
+            </TreeView.Resources>
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="False"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+        </TreeView>
+        <Button x:Name="btnSelectAll" Content="Select All" Grid.Column="3" HorizontalAlignment="Left" Margin="0,2,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75" Click="btnSelectAll_Click" Height="22"/>
+    </Grid>
+</Page>

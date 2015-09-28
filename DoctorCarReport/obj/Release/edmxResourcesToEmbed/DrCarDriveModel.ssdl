@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="drcardriveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_car">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="REG_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+    <Property Name="MODEL" Type="nvarchar" MaxLength="50" />
+    <Property Name="USER_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="50" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_car_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_drive">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DRIVER_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="START_DATE" Type="datetime" />
+    <Property Name="START_ODOMETER" Type="float" />
+    <Property Name="END_DATE" Type="datetime" />
+    <Property Name="END_ODOMETER" Type="float" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="INSERT_DATETIME" Type="datetime" />
+    <Property Name="UPDATE_DATETIME" Type="datetime" />
+    <Property Name="FKY_CAR" Type="nvarchar" MaxLength="30" />
+    <Property Name="FROM" Type="nvarchar" MaxLength="100" />
+    <Property Name="TO" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_drive_medicine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="TYPE" Type="nvarchar" MaxLength="50" />
+    <Property Name="UNIT" Type="nvarchar" MaxLength="20" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_drive_medicine_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_drive_staff">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DRIVE_DATE" Type="datetime" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="FKY_DRIVE" Type="nvarchar" MaxLength="30" />
+    <Property Name="FKY_STAFF" Type="nvarchar" MaxLength="30" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_drive_staff_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_drive_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_drive_village">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_drive_village_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_expense_desc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_expense_desc_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_expenses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AMOUNT" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ADD_DATE" Type="datetime" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="FKY_DRIVE" Type="nvarchar" MaxLength="30" />
+    <Property Name="FKY_EXPENSE" Type="nvarchar" MaxLength="30" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_expenses_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_fuel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AMOUNT" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VOLUME" Type="float" />
+    <Property Name="ODOMETER" Type="float" />
+    <Property Name="ADD_TIME" Type="datetime" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="INSERT_TIME" Type="datetime" />
+    <Property Name="UPDATE_TIME" Type="datetime" />
+    <Property Name="FKY_DRIVE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_fuel_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_issue_medicine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DOSAGE" Type="float" />
+    <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="FKY_PLACE" Type="nvarchar" MaxLength="30" />
+    <Property Name="FKY_MEDICINE" Type="nvarchar" MaxLength="30" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_issue_medicine_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_places">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ARRIVAL_DATE" Type="datetime" />
+    <Property Name="ARRIVAL_ODOMETER" Type="float" />
+    <Property Name="DEPARTURE_DATE" Type="datetime" />
+    <Property Name="DEPARTURE_ODOMETER" Type="float" />
+    <Property Name="NUMBER_PATIENT" Type="int" />
+    <Property Name="NUMBER_DOCTORS" Type="int" />
+    <Property Name="NUMBER_PARAMEDICS" Type="int" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="INSERT_DATETIME" Type="datetime" />
+    <Property Name="UPDATE_DATETIME" Type="datetime" />
+    <Property Name="FKY_DRIVE" Type="nvarchar" MaxLength="30" />
+    <Property Name="FKY_VILLAGE" Type="nvarchar" MaxLength="30" />
+    <Property Name="VILLAGE_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_places_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_staff">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="TP" Type="nvarchar" MaxLength="15" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="100" />
+    <Property Name="DOB" Type="nvarchar" MaxLength="27" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="POSITION" Type="nvarchar" MaxLength="50" />
+    <Property Name="START_DATE" Type="nvarchar" MaxLength="27" />
+    <Property Name="HEADOFFICE" Type="nvarchar" MaxLength="50" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_staff_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_weather">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="INSERT_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_weather_Tombstone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeletionDate" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="drcardriveModelStoreContainer">
+    <EntitySet Name="tbl_car" EntityType="Self.tbl_car" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_car_Tombstone" EntityType="Self.tbl_car_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_drive" EntityType="Self.tbl_drive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_drive_medicine" EntityType="Self.tbl_drive_medicine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_drive_medicine_Tombstone" EntityType="Self.tbl_drive_medicine_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_drive_staff" EntityType="Self.tbl_drive_staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_drive_staff_Tombstone" EntityType="Self.tbl_drive_staff_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_drive_Tombstone" EntityType="Self.tbl_drive_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_drive_village" EntityType="Self.tbl_drive_village" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_drive_village_Tombstone" EntityType="Self.tbl_drive_village_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_expense_desc" EntityType="Self.tbl_expense_desc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_expense_desc_Tombstone" EntityType="Self.tbl_expense_desc_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_expenses" EntityType="Self.tbl_expenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_expenses_Tombstone" EntityType="Self.tbl_expenses_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_fuel" EntityType="Self.tbl_fuel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_fuel_Tombstone" EntityType="Self.tbl_fuel_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_issue_medicine" EntityType="Self.tbl_issue_medicine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_issue_medicine_Tombstone" EntityType="Self.tbl_issue_medicine_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_places" EntityType="Self.tbl_places" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_places_Tombstone" EntityType="Self.tbl_places_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_staff" EntityType="Self.tbl_staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_staff_Tombstone" EntityType="Self.tbl_staff_Tombstone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_weather" EntityType="Self.tbl_weather" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_weather_Tombstone" EntityType="Self.tbl_weather_Tombstone" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

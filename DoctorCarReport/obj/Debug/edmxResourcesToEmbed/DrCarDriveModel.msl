@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="drcardriveModelStoreContainer" CdmEntityContainer="drcardriveEntities">
+    <EntitySetMapping Name="tbl_car">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_car">
+        <MappingFragment StoreEntitySet="tbl_car">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="REG_NO" ColumnName="REG_NO" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_car_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_car_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_car_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_drive">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_drive">
+        <MappingFragment StoreEntitySet="tbl_drive">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DRIVER_NAME" ColumnName="DRIVER_NAME" />
+          <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+          <ScalarProperty Name="START_ODOMETER" ColumnName="START_ODOMETER" />
+          <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+          <ScalarProperty Name="END_ODOMETER" ColumnName="END_ODOMETER" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="INSERT_DATETIME" ColumnName="INSERT_DATETIME" />
+          <ScalarProperty Name="UPDATE_DATETIME" ColumnName="UPDATE_DATETIME" />
+          <ScalarProperty Name="FKY_CAR" ColumnName="FKY_CAR" />
+          <ScalarProperty Name="FROM" ColumnName="FROM" />
+          <ScalarProperty Name="TO" ColumnName="TO" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_drive_medicine">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_drive_medicine">
+        <MappingFragment StoreEntitySet="tbl_drive_medicine">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_drive_medicine_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_drive_medicine_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_drive_medicine_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_drive_staff">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_drive_staff">
+        <MappingFragment StoreEntitySet="tbl_drive_staff">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DRIVE_DATE" ColumnName="DRIVE_DATE" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="FKY_DRIVE" ColumnName="FKY_DRIVE" />
+          <ScalarProperty Name="FKY_STAFF" ColumnName="FKY_STAFF" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_drive_staff_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_drive_staff_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_drive_staff_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_drive_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_drive_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_drive_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_drive_village">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_drive_village">
+        <MappingFragment StoreEntitySet="tbl_drive_village">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_drive_village_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_drive_village_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_drive_village_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_expense_desc">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_expense_desc">
+        <MappingFragment StoreEntitySet="tbl_expense_desc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_expense_desc_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_expense_desc_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_expense_desc_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_expenses">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_expenses">
+        <MappingFragment StoreEntitySet="tbl_expenses">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="ADD_DATE" ColumnName="ADD_DATE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="FKY_DRIVE" ColumnName="FKY_DRIVE" />
+          <ScalarProperty Name="FKY_EXPENSE" ColumnName="FKY_EXPENSE" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_expenses_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_expenses_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_expenses_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_fuel">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_fuel">
+        <MappingFragment StoreEntitySet="tbl_fuel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="VOLUME" ColumnName="VOLUME" />
+          <ScalarProperty Name="ODOMETER" ColumnName="ODOMETER" />
+          <ScalarProperty Name="ADD_TIME" ColumnName="ADD_TIME" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="INSERT_TIME" ColumnName="INSERT_TIME" />
+          <ScalarProperty Name="UPDATE_TIME" ColumnName="UPDATE_TIME" />
+          <ScalarProperty Name="FKY_DRIVE" ColumnName="FKY_DRIVE" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_fuel_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_fuel_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_fuel_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_issue_medicine">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_issue_medicine">
+        <MappingFragment StoreEntitySet="tbl_issue_medicine">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DOSAGE" ColumnName="DOSAGE" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="FKY_PLACE" ColumnName="FKY_PLACE" />
+          <ScalarProperty Name="FKY_MEDICINE" ColumnName="FKY_MEDICINE" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_issue_medicine_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_issue_medicine_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_issue_medicine_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_places">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_places">
+        <MappingFragment StoreEntitySet="tbl_places">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ARRIVAL_DATE" ColumnName="ARRIVAL_DATE" />
+          <ScalarProperty Name="ARRIVAL_ODOMETER" ColumnName="ARRIVAL_ODOMETER" />
+          <ScalarProperty Name="DEPARTURE_DATE" ColumnName="DEPARTURE_DATE" />
+          <ScalarProperty Name="DEPARTURE_ODOMETER" ColumnName="DEPARTURE_ODOMETER" />
+          <ScalarProperty Name="NUMBER_PATIENT" ColumnName="NUMBER_PATIENT" />
+          <ScalarProperty Name="NUMBER_DOCTORS" ColumnName="NUMBER_DOCTORS" />
+          <ScalarProperty Name="NUMBER_PARAMEDICS" ColumnName="NUMBER_PARAMEDICS" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="INSERT_DATETIME" ColumnName="INSERT_DATETIME" />
+          <ScalarProperty Name="UPDATE_DATETIME" ColumnName="UPDATE_DATETIME" />
+          <ScalarProperty Name="FKY_DRIVE" ColumnName="FKY_DRIVE" />
+          <ScalarProperty Name="FKY_VILLAGE" ColumnName="FKY_VILLAGE" />
+          <ScalarProperty Name="VILLAGE_NAME" ColumnName="VILLAGE_NAME" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_places_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_places_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_places_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_staff">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_staff">
+        <MappingFragment StoreEntitySet="tbl_staff">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="TP" ColumnName="TP" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+          <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+          <ScalarProperty Name="HEADOFFICE" ColumnName="HEADOFFICE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_staff_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_staff_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_staff_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_weather">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_weather">
+        <MappingFragment StoreEntitySet="tbl_weather">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_weather_Tombstone">
+      <EntityTypeMapping TypeName="drcardriveModel.tbl_weather_Tombstone">
+        <MappingFragment StoreEntitySet="tbl_weather_Tombstone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
