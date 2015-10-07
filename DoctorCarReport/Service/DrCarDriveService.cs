@@ -46,7 +46,7 @@ namespace DoctorCarReport.Service
                              NumDoctors = pl.Sum(pls => pls.NUMBER_DOCTORS),
                              NumParamedics = pl.Sum(pls => pls.NUMBER_PARAMEDICS),
                              InsertDateTime = d.INSERT_DATETIME
-                         }).ToList();
+                         }).OrderBy(d=>d.StartDate).ToList();
 
             return query;
 

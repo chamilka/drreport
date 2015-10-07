@@ -215,7 +215,7 @@
     <Compile Include="util\DriveHistoryView.cs" />
     <Compile Include="util\ExcelGenerator.cs" />
     <Compile Include="util\ExpenseView.cs" />
-    <Compile Include="util\FindDifference.cs" />
+    <Compile Include="util\FormatData.cs" />
     <Compile Include="util\ItemHelper.cs" />
     <Compile Include="wpfPage\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

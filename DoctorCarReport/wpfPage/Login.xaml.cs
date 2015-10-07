@@ -47,14 +47,11 @@ namespace DoctorCarReport.wpfPage
         {
             string username = txtUsername.Text;
             string password = txtPassword.Password;
-            
-
 
             if (!username.Equals("") && !password.Equals(""))
             {
                 try
                 {
-                    lblStatus.Content = "";
                     LoginService service = new LoginService();
                     tbl_user user = service.validateUser(username, password, "report");
                     if (user != null)
@@ -70,11 +67,25 @@ namespace DoctorCarReport.wpfPage
                 }
                 catch (Exception ex)
                 {
-                   // MessageBox.Show("Error", "Unable to connect database, Please check your Internet connection");
+                    // MessageBox.Show("Error", "Unable to connect database, Please check your Internet connection");
                     MessageBox.Show(ex.Message);
                 }
 
             }
+            else
+            {
+                MessageBox.Show("Username and password cannot be empty", "Invalid inputs");
+            }
+        }
+
+        private void txtUsername_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lblStatus.Content = "";
+        }
+
+        private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            lblStatus.Content = "";
         }
     }
 }

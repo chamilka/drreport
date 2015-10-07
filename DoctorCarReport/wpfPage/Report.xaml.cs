@@ -9,16 +9,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Forms;
 using DoctorCarReport.util;
 using System.Configuration;
 using System.Collections.ObjectModel;
+using System.Threading;
 
 namespace DoctorCarReport.wpfPage
 {
@@ -112,7 +111,6 @@ namespace DoctorCarReport.wpfPage
         {
             if (validInputs())
             {
-
                 try
                 {
                     ExcelGenerator generator = new ExcelGenerator();
@@ -131,6 +129,24 @@ namespace DoctorCarReport.wpfPage
 
                                     // string filePath = txtSavePath.Text + "\\Report_" + cmbOrganization.Text.Trim() + "_" + cmbDoctorCar.Text.Trim() + "_" + fromDate.Value.Date.ToString("yyyy-MM-dd") + ".xlsx";
                                     string filePath = txtSavePath.Text + "\\Report_" + org.Name.Trim() + "_" + car.RegNo.Trim() + "_" + fromDate.Value.Date.ToString("yyyy-MM-dd") + ".xlsx";
+                                    if (File.Exists(filePath))
+                                    {
+                                        var result = System.Windows.MessageBox.Show("Report file for your selected inputs already exists. Do you want to replace this file?", "File already exists", System.Windows.MessageBoxButton.YesNoCancel);
+
+                                        if (result == System.Windows.MessageBoxResult.Cancel)
+                                        {
+                                            return;
+                                        }
+                                        else if (result == System.Windows.MessageBoxResult.Yes)
+                                        {
+                                            File.Delete(filePath);
+                                        }
+                                        else if (result == System.Windows.MessageBoxResult.No)
+                                        {
+                                            filePath = generateNewFilePath(filePath);
+                                        }
+                                    }
+
 
                                     ConnectionStringManager.updateConnectionStrings(org.Id.ToString());
 
@@ -139,8 +155,12 @@ namespace DoctorCarReport.wpfPage
                                     List<DriveHistoryView> record = service.viewHistoryRecordByCarIDDateFromTo(car.Id, fromDate.Value, toDate.AddDays(1));
                                     if (record.Count > 0)
                                     {
+                                        progReport.Visibility = System.Windows.Visibility.Hidden;
                                         generator.createExcelReport(filePath, car.RegNo, record);
-                                        recordCount++;                                        
+                                        //Thread t = new Thread(() => runCreateReport(generator, filePath, car.RegNo, record, (double)(recordCount+1/record.Count)));
+                                        //t.SetApartmentState(ApartmentState.STA);
+                                        //t.Start();
+                                        recordCount++;
                                     }
                                 }
 
@@ -162,6 +182,32 @@ namespace DoctorCarReport.wpfPage
                     System.Windows.MessageBox.Show(ex.Message, "Failed to create report");
                 }
             }
+        }
+
+        private void runCreateReport(ExcelGenerator generator, string filePath, string regNo, List<DriveHistoryView> record, double count)
+        {
+            System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
+            {
+                generator.createExcelReport(filePath, regNo, record);
+                progReport.Value = progReport.Value + count*100;
+                
+            }));
+            
+        }
+
+        private string generateNewFilePath(string filePath)
+        {
+            int num = 2;
+            string newName = "";
+            string extension = Path.GetExtension(filePath);
+            string path = filePath.Replace(Path.GetFileName(filePath), "");
+            do
+            {
+                newName = Path.GetFileNameWithoutExtension(filePath) + "(" + num + ")";
+                num++;
+            } while (File.Exists(path + newName + extension));
+
+            return path + newName + extension;
         }
 
         private bool validInputs()
@@ -224,12 +270,11 @@ namespace DoctorCarReport.wpfPage
                 {
                     ItemHelper.SetIsChecked(org, false);
                 }
-                foreach (TreeViewItem item in treeView.Items)
+                foreach (var item in treeView.Items)
                 {
-                    if (item.IsExpanded == true)
-                    {
-                        item.IsExpanded = false;
-                    }
+                    DependencyObject dObject = treeView.ItemContainerGenerator.ContainerFromItem(item);
+                    TreeViewItem itm = (TreeViewItem)dObject;
+                    itm.IsExpanded = false;
                 }
                 btnSelectAll.Content = "Select all";
             }
@@ -243,9 +288,5 @@ namespace DoctorCarReport.wpfPage
             }
             allSelected = !allSelected;
         }
-
-
-
-
     }
 }
