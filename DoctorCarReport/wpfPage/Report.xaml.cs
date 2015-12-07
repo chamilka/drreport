@@ -113,7 +113,8 @@ namespace DoctorCarReport.wpfPage
             {
                 try
                 {
-                    ExcelGenerator generator = new ExcelGenerator();
+                   // ExcelGenerator generator = new ExcelGenerator();
+                    ExcelGeneratorByCar generator = new ExcelGeneratorByCar();
 
                     DateTime? fromDate = dateFrom.SelectedDate;
                     DateTime toDate = dateTo.SelectedDate.Value;
@@ -127,8 +128,9 @@ namespace DoctorCarReport.wpfPage
                                 if (ItemHelper.GetIsChecked(car) == true)
                                 {
 
-                                    // string filePath = txtSavePath.Text + "\\Report_" + cmbOrganization.Text.Trim() + "_" + cmbDoctorCar.Text.Trim() + "_" + fromDate.Value.Date.ToString("yyyy-MM-dd") + ".xlsx";
-                                    string filePath = txtSavePath.Text + "\\Report_" + org.Name.Trim() + "_" + car.RegNo.Trim() + "_" + fromDate.Value.Date.ToString("yyyy-MM-dd") + ".xlsx";
+                                    //string filePath = txtSavePath.Text + "\\Report_" + org.Name.Trim() + "_" + car.RegNo.Trim() + "_" + fromDate.Value.Date.ToString("yyyy-MM-dd") + ".xlsx";
+                                    string filePath = txtSavePath.Text + "\\Report_" + org.Name.Trim() + "_" + car.RegNo.Trim() + ".xlsx";
+                                    
                                     if (File.Exists(filePath))
                                     {
                                         var result = System.Windows.MessageBox.Show("Report file for your selected inputs already exists. Do you want to replace this file?", "File already exists", System.Windows.MessageBoxButton.YesNoCancel);
@@ -156,7 +158,7 @@ namespace DoctorCarReport.wpfPage
                                     if (record.Count > 0)
                                     {
                                         progReport.Visibility = System.Windows.Visibility.Hidden;
-                                        generator.createExcelReport(filePath, car.RegNo, record);
+                                        generator.createExcelReport(filePath, car.RegNo, org.Name, record);
                                         //Thread t = new Thread(() => runCreateReport(generator, filePath, car.RegNo, record, (double)(recordCount+1/record.Count)));
                                         //t.SetApartmentState(ApartmentState.STA);
                                         //t.Start();
@@ -184,16 +186,16 @@ namespace DoctorCarReport.wpfPage
             }
         }
 
-        private void runCreateReport(ExcelGenerator generator, string filePath, string regNo, List<DriveHistoryView> record, double count)
-        {
-            System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
-            {
-                generator.createExcelReport(filePath, regNo, record);
-                progReport.Value = progReport.Value + count*100;
+        //private void runCreateReport(ExcelGenerator generator, string filePath, string regNo, List<DriveHistoryView> record, double count)
+        //{
+        //    System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
+        //    {
+        //        generator.createExcelReport(filePath, regNo, record);
+        //        progReport.Value = progReport.Value + count*100;
                 
-            }));
+        //    }));
             
-        }
+        //}
 
         private string generateNewFilePath(string filePath)
         {

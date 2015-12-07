@@ -212,6 +212,7 @@
     <Compile Include="util\CellManager.cs" />
     <Compile Include="util\CellStyle.cs" />
     <Compile Include="util\ConnectionStringManager.cs" />
+    <Compile Include="util\ExcelGeneratorByCar.cs" />
     <Compile Include="util\DriveHistoryView.cs" />
     <Compile Include="util\ExcelGenerator.cs" />
     <Compile Include="util\ExpenseView.cs" />

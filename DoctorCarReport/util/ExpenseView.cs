@@ -11,6 +11,8 @@ namespace DoctorCarReport.util
         private string item;
         private Decimal? amount;
         private string  remark;
+        private Nullable<System.DateTime> addDate;
+
 
         public string  Remark
         {
@@ -30,6 +32,12 @@ namespace DoctorCarReport.util
         {
             get { return item; }
             set { item = value; }
+        }
+
+        public Nullable<System.DateTime> AddDate
+        {
+            get { return addDate; }
+            set { addDate = value; }
         }
         
     }

@@ -67,6 +67,7 @@ namespace DoctorCarReport.Service
                              Item = ed.DESCRIPTION,
                              Amount = e.AMOUNT,
                              Remark = e.REMARK,
+                             AddDate = e.ADD_DATE
                          }).ToList();
 
             return query;
