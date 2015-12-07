@@ -84,6 +84,7 @@ namespace DoctorCarReport.Service
                          where d.FKY_CAR == carID 
                          && d.START_DATE>=fromDate
                          && d.START_DATE<toDate
+                         && d.STATUS == false
                          join p in db.tbl_places on d.ID equals p.FKY_DRIVE into pl
                          join f in db.tbl_fuel on d.ID equals f.FKY_DRIVE into fd
                          select new DriveHistoryView()

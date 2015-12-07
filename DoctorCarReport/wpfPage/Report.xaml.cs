@@ -32,6 +32,7 @@ namespace DoctorCarReport.wpfPage
         public Report()
         {
             InitializeComponent();
+            dateTo.SelectedDate = DateTime.Now;
         }
 
         private static Report instance;
